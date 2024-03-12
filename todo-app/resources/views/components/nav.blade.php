@@ -27,10 +27,25 @@
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+
+      @if (Auth::user())
+      <form method="POST" action="{{ route('logout') }}" x-data>
+          @csrf
+
+          <x-dropdown-link href="{{ route('logout') }}"
+                    @click.prevent="$root.submit();">
+              {{ __('Log Out') }}
+          </x-dropdown-link>
       </form>
+      @else
+      <span>
+        <a href="{{ route('login') }}">Login</a> or
+        <a href="{{ route('register') }}">Register</a>
+
+      </span>
+          
+      @endif
+
     </div>
   </div>
 </nav>
