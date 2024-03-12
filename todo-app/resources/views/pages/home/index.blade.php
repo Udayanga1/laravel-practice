@@ -15,6 +15,7 @@
       .page-title {
           margin-top: 20px;
           font-size: 5rem;
+          color: rgb(51, 121, 190)
       }
   </style>
 @endpush
