@@ -39,9 +39,21 @@ class Images
         }
 
         return $this->makeObject($renamed_uploaded_file);
+      } else {
+        throw new \Exception('File move operation failed');
       }
     }
 
+    public function getThumbSize($size_type)
+    {
+      return Config::get('images.' .$size_type);
+    }
+
+    /**
+     * Save thumbnailes of the image
+     * @param $file
+     * @param $size_type
+     */
     public function saveThumb($file, $size_type)
     {
       $manager = new ImageManager(array('driver' => Config::get('images.driver')));
@@ -135,13 +147,13 @@ class Images
       $new_image = FileFacade::makeName() . '.jpg';
 
       // Store in the filesystem
-      FileFacade::storeFile($contents, $new_image_name, $this->image_path, 'w');
+      FileFacade::storeFile($contents, $new_image, $this->image_path, 'w');
 
       foreach($thumb_sizes as $size){
-        $this->saveThumb($new_image_name, $size);
+        $this->saveThumb($new_image, $size);
       }
 
-      return $this->makeObject($new_image_name);
+      return $this->makeObject($new_image);
     }
 
     /**

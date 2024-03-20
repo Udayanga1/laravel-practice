@@ -7,7 +7,7 @@
               <h1 class="page-title">My Banner List</h1>
           </div>
           <div class="col-lg-12">
-            <form action="{{ route('banner.store') }}" method="post" enctype="multipart/form-data">
+            <form role="form" action="{{ route('banner.store') }}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row g-3">
                 <div class="col-8">
@@ -15,7 +15,7 @@
                     <input type="text" name="title" class="form-control" placeholder="Enter Banner Title">
                   </div>
                   <div class="form-group mt-3">
-                    <input type="file" name="images" class="form-control" placeholder="Enter Banner Image" accept="image/jpg, image/jpeg, image/png,">
+                    <input type="file" name="images" class="form-control" accept="image/jpg, image/jpeg, image/png,">
                   </div>
                 </div>
                 <div class="col-4">
