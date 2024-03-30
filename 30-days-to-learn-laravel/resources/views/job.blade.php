@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        About
+        Jobs
     </x-slot:heading>
-    <h1>Hello from About</h1>
+    <h2>{{ $job['title'] }}</h2>
 </x-layout>
