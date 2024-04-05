@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
+
 });
 
 Route::get('/jobs', function () {
-    return view('jobs', [
-        'jobs' => Job::all()
+    return view('jobs', [   // 'jobs' is the name of the view file (jobs.blade.php)
+        'jobs' => Job::all() // 'jobs' is the variable name that will be available in the view (route parameter)
     ]);
 });
 
